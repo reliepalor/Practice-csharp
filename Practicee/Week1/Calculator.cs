@@ -4,19 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Practicee
+namespace Practicee.Week1
 {
     internal class Calculator
     {
-        public void Run() 
+        public void Run()
         {
             Console.WriteLine("CALCULATOR APP\n");
 
             bool isRunning = true;
 
-            while (isRunning) 
+            while (isRunning)
             {
-                
+
                 Console.Write("Enter first number:");
                 double num1 = Convert.ToDouble(Console.ReadLine());
 
@@ -56,13 +56,13 @@ namespace Practicee
                     isRunning = false;
                     Console.WriteLine("Thank you for using the calculator. Goodbye!");
                 }
-                else if (response != "y") 
+                else if (response != "y")
                 {
                     Console.WriteLine("Invalid. please enter (y/n) \n");
                 }
             }
-           
-               
+
+
         }
     }
 }

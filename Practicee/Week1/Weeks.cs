@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Practicee
+namespace Practicee.Week1
 {
     internal class Weeks
     {
@@ -16,7 +16,7 @@ namespace Practicee
             string day = Console.ReadLine();
 
             switch (day)
-            { 
+            {
                 case "1":
                     Console.WriteLine("Sunday");
                     break;
