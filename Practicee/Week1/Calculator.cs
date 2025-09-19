@@ -10,41 +10,43 @@ namespace Practicee.Week1
     {
         public void Run()
         {
+            Console.WriteLine("-----------------------------------");
             Console.WriteLine("CALCULATOR APP\n");
 
+            double num1 = 0;
+            double num2 = 0;
+            double result = 0;
             bool isRunning = true;
 
             while (isRunning)
             {
 
                 Console.Write("Enter first number:");
-                double num1 = Convert.ToDouble(Console.ReadLine());
+                num1 = Convert.ToDouble(Console.ReadLine());
 
                 Console.Write("Choose Operation: (* , + , - , /): ");
                 char operation = Convert.ToChar(Console.ReadLine());
 
                 Console.Write("Enter second number:");
-                double num2 = Convert.ToDouble(Console.ReadLine());
-
-                double result = 0;
+                num2 = Convert.ToDouble(Console.ReadLine());
 
                 switch (operation)
                 {
                     case '*':
                         result = num1 * num2;
-                        Console.WriteLine("Result: " + result);
+                        Console.WriteLine($"Result: {num1} x {num2} = " + result);
                         break;
                     case '+':
                         result = num1 + num2;
-                        Console.WriteLine("Result: " + result);
+                        Console.WriteLine($"Result: {num1} + {num2} = {result}");
                         break;
                     case '-':
                         result = num1 - num2;
-                        Console.WriteLine("Result: " + result);
+                        Console.WriteLine($"Result: {num1} - {num2} = {result}");
                         break;
                     case '/':
                         result = num1 / num2;
-                        Console.WriteLine("Result: " + result);
+                        Console.WriteLine($"Result: {num1} / {num2} = {result}");
                         break;
                 }
 
@@ -61,7 +63,8 @@ namespace Practicee.Week1
                     Console.WriteLine("Invalid. please enter (y/n) \n");
                 }
             }
-
+                
+            Console.ReadKey();
 
         }
     }

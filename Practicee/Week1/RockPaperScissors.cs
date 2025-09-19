@@ -14,11 +14,13 @@ namespace Practicee.Week1
             bool play = true;
             string player;
             string computer;
+            string answer;
 
             while (play)
             {
                 player = "";
                 computer = "";
+                answer = "";
 
                 while (player != "ROCK" && player != "PAPER" && player != "SCISSORS")
                 {
@@ -98,7 +100,7 @@ namespace Practicee.Week1
                 Console.Clear();
 
             }
-
+            Console.WriteLine("Thanks for playing");
             Console.ReadKey();
         }
     }
