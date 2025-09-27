@@ -9,8 +9,11 @@ namespace Practicee
     {
         static void Main(string[] args)
         {
-            LibraryActivate libraryActivate = new LibraryActivate();
-            libraryActivate.Run();
+            // LibraryActivate libraryActivate = new LibraryActivate();
+            // libraryActivate.Run();
+
+            FoodActivate foodActivate = new FoodActivate();
+            foodActivate.Run();
         }
     }
 
