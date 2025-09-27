@@ -1,4 +1,7 @@
-﻿using Practicee.Week1;
+﻿using Practicee.Week2;
+using Practicee.OOP;
+using System.Collections.Generic;
+
 
 namespace Practicee
 {
@@ -6,9 +9,8 @@ namespace Practicee
     {
         static void Main(string[] args)
         {
-
-            Day7 day7= new Day7();
-            day7.Run();
+            LibraryActivate libraryActivate = new LibraryActivate();
+            libraryActivate.Run();
         }
     }
 
