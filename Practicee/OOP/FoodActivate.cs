@@ -11,22 +11,18 @@ namespace Practicee.OOP
     {
         public void Run()
         {
-            List<Food> menu = new List<Food>()
-            {
-                new Pizza("Pepperoni Pizza", 12.99, "Large"),
-                new Salad("Caesar Salad", 6.50),
-                new Burger("Cheeseburger", 8.75)
-            };
+            Menu menu = new Menu();
+            menu.AddFood(new List<Food>
+    {
+        new Pizza("Pepperoni", 250, "Large"),
+        new Salad("Caesar Salad", 150),
+        new Burger("Cheeseburger", 200)
+    });
 
-            Console.WriteLine("== Welcpme to Food Ordering System ===\n");
+            Console.WriteLine("== Welcome to Food Ordering System ===\n");
             Console.WriteLine("Menu: ");
-            int index = 1;
+            menu.ShowFoods();
 
-            foreach (var item in menu)
-            {
-                Console.WriteLine($"{index}. {item.Name} - {item.Price}");
-                index++;
-            }
             Console.Write("\nEnter the number of the food you want to order: ");
             string input = Console.ReadLine();
 
@@ -36,11 +32,13 @@ namespace Practicee.OOP
                 selectedFood.Order();
                 selectedFood.Serve();
             }
-            else 
+            else
             {
                 Console.WriteLine("Invalid choice.");
             }
+
             Console.WriteLine("\nThank you for ordering!");
         }
+
     }
 }

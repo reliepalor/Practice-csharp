@@ -1,5 +1,6 @@
 ﻿using Practicee.Week2;
 using Practicee.OOP;
+using Practicee.GENERICS;
 using System.Collections.Generic;
 
 
@@ -9,11 +10,8 @@ namespace Practicee
     {
         static void Main(string[] args)
         {
-            // LibraryActivate libraryActivate = new LibraryActivate();
-            // libraryActivate.Run();
-
-            FoodActivate foodActivate = new FoodActivate();
-            foodActivate.Run();
+            Dictionary_ dict = new Dictionary_();
+            dict.Run();
         }
     }
 

@@ -1,30 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Practicee.OOP
+﻿namespace Practicee.OOP
 {
-    interface Iorderable
+    interface IOrderable
     {
         void Order();
     }
-    internal class Food : Iorderable
+
+    internal class Food : IOrderable
     {
+        public string Name { get; set; }
+        public string Type { get; set; }
         private double price;
 
-        public string Name { get; set; }
         public double Price
         {
             get { return price; }
             set { price = (value < 0) ? 0 : value; }
         }
-        public Food(string name, double price)
+
+        public Food(string name, double price, string type)
         {
             Name = name;
             Price = price;
+            Type = type;
         }
 
         public virtual void Serve()
@@ -38,13 +35,37 @@ namespace Practicee.OOP
         }
     }
 
-    class Pizza : Food 
-    { 
+    class Menu
+    {
+        private List<Food> foods = new List<Food>();
+
+        public void AddFood(IEnumerable<Food> foodsToAdd)
+        {
+            foods.AddRange(foodsToAdd);
+        }
+
+        public void ShowFoods()
+        {
+            for (int i = 0; i < foods.Count; i++)
+            {
+                var food = foods[i];
+                string status = food.Price > 0 ? "Available" : "Not Available";
+                Console.WriteLine($"Item {i + 1} -- {food.Type} {food.Name} --- {food.Price} [{status}]");
+            }
+        }
+        public int Count => foods.Count;
+        public Food this[int index] => foods[index];
+    }
+
+
+    class Pizza : Food
+    {
         public string Size { get; set; }
 
-        public Pizza(string name, double price, string size) : base(name, price)
+        public Pizza(string name, double price, string size)
+            : base(name, price, "Pizza") // ✅ pass type
         {
-            Size = size; 
+            Size = size;
         }
 
         public override void Serve()
@@ -60,7 +81,8 @@ namespace Practicee.OOP
 
     class Salad : Food
     {
-        public Salad(string name, double price) : base(name, price){ }
+        public Salad(string name, double price)
+            : base(name, price, "Salad") { }
 
         public override void Serve()
         {
@@ -69,13 +91,14 @@ namespace Practicee.OOP
 
         public override void Order()
         {
-            Console.WriteLine($"Pizza ordered: {Name} for {Price}");
+            Console.WriteLine($"Salad ordered: {Name} for {Price}");
         }
     }
 
-    class Burger : Food 
+    class Burger : Food
     {
-        public Burger(string name, double price) : base(name, price) { }
+        public Burger(string name, double price)
+            : base(name, price, "Burger") { }
 
         public override void Serve()
         {
@@ -84,7 +107,7 @@ namespace Practicee.OOP
 
         public override void Order()
         {
-            Console.WriteLine($"Pizza ordered: {Name} for {Price}");
+            Console.WriteLine($"Burger ordered: {Name} for {Price}");
         }
     }
 }
