@@ -11,13 +11,40 @@ namespace Practicee.GENERICS
     {
         public void Run() 
         {
-            Dictionary<string, List<Food>> orders = new Dictionary<string, List<Food>>();
+            IterateDictionary();
+        }
 
-            orders["Alice"] = new List<Food> { new Pizza("Hawaiian", 220, "Medium") };
-            orders["Bob"] = new List<Food> { new Burger("Double Cheeseburger", 300) };
+        private static void IterateDictionary()
+        {
+            Dictionary<string, Food> foods = makeFood();
 
-            Console.WriteLine($"Alice ordered: {orders["Alice"][0].Name}");
+            foreach (KeyValuePair<string, Food> fcode in foods)
+            {
+                Food FoodCode = fcode.Value;
 
+                Console.WriteLine("Food Code: " + fcode.Key);
+                Console.WriteLine($"Food: {FoodCode.Category} {FoodCode.Name} {FoodCode.Price}\n");
+            }
+        }
+
+        public class Food
+        { 
+            public required string Category { get; set; }
+            public required string Name { get; set; }
+            public required double Price { get; set; }
+
+        }
+
+        private static Dictionary<string, Food> makeFood()
+        {
+            Dictionary<string, Food> foods = new Dictionary<string, Food>();
+            foods.Add("A1", new Food() { Category = "Appetizer", Name = "Spring Roll", Price = 5.00 });
+            foods.Add("A2", new Food() { Category = "Appetizer", Name = "Garlic Bread", Price = 4.00 });
+            foods.Add("M1", new Food() { Category = "Main Course", Name = "Grilled Chicken", Price = 15.00 });
+            foods.Add("M2", new Food() { Category = "Main Course", Name = "Pasta", Price = 12.00 });
+            foods.Add("D1", new Food() { Category = "Dessert", Name = "Cheesecake", Price = 6.00 });
+            foods.Add("D2", new Food() { Category = "Dessert", Name = "Ice Cream", Price = 4.00 });
+            return foods;
         }
     }
 }

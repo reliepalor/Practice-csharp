@@ -1,6 +1,7 @@
 ﻿using Practicee.Week2;
 using Practicee.OOP;
 using Practicee.GENERICS;
+using Practicee.COLLECTIONS;
 using System.Collections.Generic;
 
 
@@ -10,8 +11,9 @@ namespace Practicee
     {
         static void Main(string[] args)
         {
-            Dictionary_ dict = new Dictionary_();
-            dict.Run();
+            Dictionary_ dic = new Dictionary_();
+            dic.Run();
+
         }
     }
 
