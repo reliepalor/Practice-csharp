@@ -15,7 +15,7 @@ namespace Practicee.LINQ
             Cats.Add("Misty");
             Cats.Add("Vuevue");
             Cats.Add("Ungang");
-            Console.WriteLine("Available Pets");
+            Console.WriteLine("Available Petss");
             int count = 1;
             foreach (var cat in Cats)
             {
